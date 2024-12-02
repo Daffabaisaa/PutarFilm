@@ -1,7 +1,3 @@
-Berikut adalah versi yang lebih rapi dan formal dari file README Anda:
-
----
-
 # **PutarFilm**
 
 PutarFilm adalah aplikasi web yang dirancang untuk mempermudah pengguna dalam mencari dan memberikan ulasan film. Aplikasi ini menghadirkan antarmuka yang ramah pengguna untuk menjelajahi detail film, memberikan komentar, serta memanfaatkan fitur manajemen akun yang terintegrasi.
