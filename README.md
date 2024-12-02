@@ -1,66 +1,120 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Berikut adalah versi yang lebih rapi dan formal dari file README Anda:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+# **PutarFilm**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+PutarFilm adalah aplikasi web yang dirancang untuk mempermudah pengguna dalam mencari dan memberikan ulasan film. Aplikasi ini menghadirkan antarmuka yang ramah pengguna untuk menjelajahi detail film, memberikan komentar, serta memanfaatkan fitur manajemen akun yang terintegrasi.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Aplikasi ini dibangun menggunakan teknologi modern berikut:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **React**: Untuk pengembangan antarmuka pengguna (frontend), yang menawarkan pengalaman pengguna responsif dan interaktif.
+- **Laravel**: Sebagai backend API untuk pengelolaan data, logika aplikasi, dan layanan autentikasi.
 
-## Learning Laravel
+Dengan arsitektur berbasis API, **PutarFilm** memisahkan frontend dan backend, memungkinkan keduanya bekerja secara independen namun tetap terhubung dengan baik.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## **Fitur Utama**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Pencarian dan Filter Film**  
+   Pengguna dapat mencari film berdasarkan judul atau kategori tertentu dengan data film yang lengkap.
 
-## Laravel Sponsors
+2. **Detail Film**  
+   Setiap film memiliki halaman detail yang menampilkan sinopsis, durasi, tahun rilis, dan rating.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. **Manajemen Pengguna**  
+   Pengguna dapat mendaftar akun, masuk (login), serta menambahkan komentar pada film.
 
-### Premium Partners
+4. **Keamanan dan Autentikasi**  
+   Backend dilengkapi fitur autentikasi berbasis **Laravel JWT**, memastikan keamanan data pengguna.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+5. **Manajemen Admin**  
+   Admin memiliki akses untuk:
+   - Memverifikasi pengguna.
+   - Menambahkan data film baru.
+   - Memoderasi komentar.
+   - Menambah data baru seperti negara, genre, dan aktor.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## **Teknologi yang Digunakan**
 
-## Code of Conduct
+- **React**  
+  Framework JavaScript untuk membangun antarmuka dinamis, memberikan pengalaman yang lancar dan cepat.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Laravel**  
+  Framework PHP untuk backend, yang menyediakan fitur seperti routing, middleware, validasi, dan autentikasi. Menggunakan **Eloquent ORM** untuk manajemen database.
 
-## Security Vulnerabilities
+- **MySQL**  
+  Sistem manajemen basis data untuk menyimpan data film, informasi pengguna, dan data lainnya.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **Tailwind CSS**  
+  Library CSS yang mempermudah pembuatan antarmuka responsif dan modern.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## **Tujuan Proyek**
+
+Proyek **PutarFilm** bertujuan untuk memberikan pengalaman pengguna yang menyenangkan dalam menjelajahi film. Dengan arsitektur berbasis API, aplikasi ini dirancang agar mudah diintegrasikan dengan fitur tambahan di masa depan.
+
+---
+
+## **Persyaratan Sistem**
+
+Pastikan sistem Anda memenuhi spesifikasi berikut:
+
+- **Sistem Operasi**: Windows 10 atau lebih baru, macOS, atau Linux.
+- **Prosesor**: Intel i3 atau lebih tinggi.
+- **RAM**: Minimal 4GB (disarankan 8GB atau lebih).
+- **Penyimpanan**: Minimal 500MB ruang kosong.
+
+### **Perangkat Lunak yang Dibutuhkan**
+
+- Node.js (Versi >= 16.x)
+- Composer (Versi >= 2.x)
+- PHP (Versi >= 8.x)
+- MySQL (atau MariaDB)
+- Git
+- XAMPP
+
+---
+
+## **Instalasi dan Setup**
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek di lingkungan lokal:
+
+1. Clone repositori ini:  
+   ```bash
+   git clone <URL_REPOSITORY>
+   ```
+
+2. Import database:  
+   - Buka **phpMyAdmin** melalui XAMPP.  
+   - Import file `putar_putar_film.sql` ke database Anda.
+
+3. Jalankan server database menggunakan XAMPP.
+
+4. Install dependensi frontend dan backend:  
+   - Backend:  
+     ```bash
+     composer install
+     ```  
+   - Frontend:  
+     ```bash
+     npm install
+     ```
+
+5. Konfigurasi file `.env` pada root proyek Laravel untuk menyesuaikan pengaturan database.
+
+6. Jalankan server lokal:  
+   - Untuk backend:  
+     ```bash
+     php artisan serve
+     ```  
+   - Untuk frontend:  
+     ```bash
+     npm run dev
+     ```
+
+---
