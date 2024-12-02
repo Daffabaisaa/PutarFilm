@@ -82,7 +82,7 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek di lingkungan lokal:
 
 1. Clone repositori ini:  
    ```bash
-   git clone <URL_REPOSITORY>
+   git clone https://github.com/Daffabaisaa/PutarFilm.git
    ```
 
 2. Import database:  
