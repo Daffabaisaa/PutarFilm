@@ -6,6 +6,7 @@ import SearchLogin from './HomePage/SearchLogin';
 import LoginButton from './LoginButton';
 import UserProfile from './UserProfile';
 import LogoutButton from './LogoutButton';
+const logo = 'mock-logo';
 
 export default function NavbarUtama({ countrys, onSearch, user }) {
   return (

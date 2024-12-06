@@ -23,63 +23,6 @@ use Illuminate\Support\Facades\Auth;
 
 class FilmController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    // public function index(Request $request)
-    // {
-    //     $searchTerm = $request->input('search');
-    //     $selectedGenre = $request->input('genre');
-    //     $selectedPlatform = $request->input('platform');
-    //     $selectedCountry = $request->input('country'); 
-
-    //     $query = Film::with('genres');
-
-    //     if ($searchTerm) {
-    //         // Pencarian berdasarkan judul film atau nama aktor
-    //         $query->where('title', 'like', '%' . $searchTerm . '%')
-    //               ->orWhereHas('actors', function ($q) use ($searchTerm) {
-    //                   $q->where('name', 'like', '%' . $searchTerm . '%'); 
-    //               });
-    //     }
-    
-    
-    //     if ($selectedGenre) {
-    //         $query->whereHas('genres', function ($q) use ($selectedGenre) {
-    //             $q->where('tb_genre.genre_name', $selectedGenre);
-    //         });
-    //     }
-    
-    //     if ($selectedPlatform) {
-    //         $query->whereHas('platforms', function ($q) use ($selectedPlatform) {
-    //             $q->where('tb_platform.name_platform', $selectedPlatform);
-    //         });
-    //     }
-    
-    //     if ($selectedCountry) {
-    //         // Karena relasi one-to-many, gunakan where langsung
-    //         $query->where('country', $selectedCountry);
-    //     }
-
-    //     // paginasi
-    //     $films = $query->paginate(8);
-    
-    //     // Data lain untuk ditampilkan
-    //     $countrys = Country::all();
-    //     $platforms = Platform::all();
-    //     $genres = Genre::all();
-
-    //     // dd($countrys, $genres, $platforms);
-    
-    //     return inertia::render('Homepage', [
-    //         'title' => "Putar Putar Film Home",
-    //         'description' => "Selamat Datang Bro",
-    //         'films' => $films,
-    //         'countrys' => $countrys,
-    //         'genres' => $genres,
-    //         'platforms' => $platforms,
-    //     ]);
-    // }
 
     public function index(Request $request)
 {

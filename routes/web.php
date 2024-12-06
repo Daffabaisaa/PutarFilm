@@ -40,9 +40,9 @@ Route::get('/api/comments', [FilmController::class, 'readComments']);
 
 
 
-Route::get('/countries', [CMSCountryController::class, 'readCountry'])->name('countries.index'); // GET untuk melihat daftar country
-Route::post('/countries', [CMSCountryController::class, 'storeCountry'])->name('countries.store'); // POST untuk menambahkan country
-Route::delete('/countries/{country}', [CMSCountryController::class, 'destroyCountry'])->name('countries.destroy'); // DELETE untuk menghapus country
+Route::get('/countries', [CMSCountryController::class, 'readCountry'])->name('countries.index'); 
+Route::post('/countries', [CMSCountryController::class, 'storeCountry'])->name('countries.store');
+Route::delete('/countries/{country}', [CMSCountryController::class, 'destroyCountry'])->name('countries.destroy');
 Route::put('/countries/{country}', [CMSCountryController::class, 'updateCountry']);
 
 Route::get('/genres', [CMSGenreController::class, 'readGenres'])->name('genres.index');
@@ -74,10 +74,6 @@ Route::get('/filmcms', [FilmController::class, 'filmCms']);
 Route::delete('/filmcms/{id}', [FilmController::class, 'deleteFilm']);
 
 Route::get('/films', [FilmController::class, 'readInputFilm']);
-// Route::post('/films', [FilmController::class, 'store'])->name('films.store');
-// Route::get('/films/{film_id}/edit', [FilmController::class, 'editFilm'])->name('films.edit');
-// Route::put('/films/{film}', [FilmController::class, 'update'])->name('films.update');
-
 Route::get('/films/{film}/edit', [FilmController::class, 'edit'])->name('films.edit');
 Route::post('/films', [FilmController::class, 'store'])->name('films.store');
 Route::patch('/films/{film}', [FilmController::class, 'update'])->name('films.update');

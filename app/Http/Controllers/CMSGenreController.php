@@ -21,6 +21,7 @@ class CMSGenreController extends Controller
 
 public function storeGenre(Request $request)
 {
+    Log::info('Request received:', $request->all()); // Tambahkan log ini
     // Validasi input
     $request->validate([
         'genre_name' => 'required|string|unique:tb_genre,genre_name'

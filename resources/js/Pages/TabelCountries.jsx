@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Navbar from '@/Components/Navbar';
-import SidebarButton from '@/Components/SidebarButton';
+import Navbar from '../Components/Navbar';
+import SidebarButton from '../Components/SidebarButton';
 
 const TabelCountries = ({ countries }) => {
     const [country, setCountry] = useState('');
@@ -82,9 +82,6 @@ const TabelCountries = ({ countries }) => {
             alert('Failed to update country');
         }
     };
-    
-    
-    
 
     return (
         <div>
