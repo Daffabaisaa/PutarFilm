@@ -1,41 +1,36 @@
 # Gunakan image resmi PHP dengan Apache
-FROM php:8.2-apache
+FROM php:8.2-cli
 
-# Install dependensi tambahan (untuk Laravel dan aplikasi Node.js)
 RUN apt-get update && apt-get install -y \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm@latest
+
+RUN apt-get update && apt-get install -y \
+    git \
     curl \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip \
-    git \
-    nodejs \
-    npm
+    unzip
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
-WORKDIR /var/www/html
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+    
+WORKDIR /app
 
-# Salin semua file ke container
 COPY . .
 
-# Install dependensi Laravel
-RUN composer install
-
-# Install dependensi React
 RUN npm install
 
-# Bangun frontend (React)
-RUN npm run build
+RUN composer install
 
-# Set permission
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+ENV PORT=5173
 
-# Expose port untuk aplikasi Laravel
-EXPOSE 80
+EXPOSE 8000 5173
 
-# Jalankan Laravel di mode development
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

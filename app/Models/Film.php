@@ -9,7 +9,6 @@ class Film extends Model
 {
     protected $table = 'tb_film';
     protected $primaryKey = 'film_id';
-    // protected $fillable = ['title'];
     protected $fillable = [
         'title',
         'alternative_title',

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from '@inertiajs/inertia-react'; // Impor Link dari Inertia
-// import logo from '../../foto/logo.png';
-const logo = 'mock-logo';
+import logo from '../../foto/logo.png';
 
 export default function Navbar(countrys) {
   return (

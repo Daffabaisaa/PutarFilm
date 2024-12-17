@@ -35,35 +35,3 @@ function HalamanFilm(props) {
 }
 
 export default HalamanFilm;
-
-
-
-// // HalamanFilm.jsx
-// import React from 'react';
-// import Navbar from '@/Components/Navbar';
-// import FilmDetail from '@/Components/FilmDetail';
-// import FilmTrailer from '@/Components/FilmTrailer';
-// import Comments from '@/Components/Comments';
-// import CommentForm from '@/Components/CommentForm';
-// import ListActor from "@/Components/ListActor";
-
-// function HalamanFilm({ film, auth, comments }) { // Pastikan `comments` diterima sebagai props
-//   return (
-//     <div>
-//       <Navbar />
-//       <FilmDetail film={film} />
-//       <FilmTrailer film={film} />
-//       <ListActor film={film} />
-//       <Comments comments={comments} />
-
-//       {/* Hanya tampilkan CommentForm jika user sudah login */}
-//       {auth.user ? (
-//         <CommentForm filmId={film.id} userId={auth.user.id} />
-//       ) : (
-//         <p>Login untuk memberi komentar.</p>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default HalamanFilm;

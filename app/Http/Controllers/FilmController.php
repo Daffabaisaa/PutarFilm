@@ -200,7 +200,7 @@ public function readComments($filmId)
             'trailer_url' => $request->trailerUrl,
         ]);
 
-        // Ambil film_id baru
+        // Ambil film_id baru-
         $filmId = $film->film_id;
 
         // Simpan genre ke film_genre berdasarkan genre yang dipilih
@@ -236,98 +236,95 @@ public function readComments($filmId)
         return redirect()->back()->with('success', 'Film added successfully');
     }
 
-    // public function editFilm($film_id)
-    // {
-    //     $film = Film::with(['genres', 'platforms', 'actors'])->findOrFail($film_id);
-    //     $countries = Country::all();
-    //     $genres = Genre::all();
-    //     $platforms = Platform::all();
-    //     $actors = Cast::all();
-    //     $awards = Award::whereNull('film_id')->orWhere('film_id', $film_id)->get();
+    public function edit($film_id)
+    {
+        $film = Film::with(['genres', 'platforms', 'actors'])->findOrFail($film_id);
+        $countries = Country::all();
+        $genres = Genre::all();
+        $platforms = Platform::all();
+        $actors = Cast::all();
+        $awards = Award::whereNull('film_id')->orWhere('film_id', $film_id)->get();
 
-    //     return Inertia::render('DramaInput', [
-    //         'film' => $film,
-    //         'countries' => $countries,
-    //         'genres' => $genres,
-    //         'platforms' => $platforms,
-    //         'actors' => $actors,
-    //         'awards' => $awards,
-    //     ]);
-    // }
+        return Inertia::render('DramaInput', [
+            'film' => $film,
+            'countries' => $countries,
+            'genres' => $genres,
+            'platforms' => $platforms,
+            'actors' => $actors,
+            'awards' => $awards,
+        ]);
+    }
 
-    // public function updateFilm(Request $request, $film_id)
-    // {
-    //     // Validasi input
-    //     $request->validate([
-    //         'title' => 'required|string|max:255',
-    //         'synopsis' => 'nullable|string',
-    //         'year' => 'nullable|integer',
-    //         'poster' => 'nullable|url',
-    //         'trailer' => 'nullable|url',
-    //         'genres' => 'required|array',
-    //         'platforms' => 'required|array',
-    //         'actors' => 'required|array',
-    //         // Tambahkan validasi lain sesuai kebutuhan
-    //     ]);
+    public function update(Request $request, $film_id)
+    {
+        // Validasi input
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'synopsis' => 'nullable|string',
+            'year' => 'nullable|integer',
+            'poster' => 'nullable|url',
+            'trailer' => 'nullable|url',
+            'genres' => 'required|array',
+            'platforms' => 'required|array',
+            'actors' => 'required|array',
+            // Tambahkan validasi lain sesuai kebutuhan
+        ]);
 
-    //     // Update data film utama
-    //     $film = Film::findOrFail($film_id);
-    //     $film->title = $request->title;
-    //     $film->synopsis = $request->synopsis;
-    //     $film->year = $request->year;
-    //     $film->poster = $request->poster;
-    //     $film->trailer = $request->trailer;
-    //     // Update kolom lain sesuai kebutuhan
-    //     $film->save();
+        // Update data film utama
+        $film = Film::findOrFail($film_id);
+        $film->title = $request->title;
+        $film->synopsis = $request->synopsis;
+        $film->year = $request->year;
+        $film->poster = $request->poster;
+        $film->trailer = $request->trailer;
+        // Update kolom lain sesuai kebutuhan
+        $film->save();
 
-    //     // Mulai proses update relasi dengan menggunakan transaction untuk memastikan konsistensi data
-    //     DB::transaction(function () use ($request, $film_id) {
+        // Mulai proses update relasi dengan menggunakan transaction untuk memastikan konsistensi data
+        DB::transaction(function () use ($request, $film_id) {
             
-    //         // Update genres
-    //         // 1. Hapus semua genre lama untuk film ini
-    //         DB::table('film_genre')->where('film_id', $film_id)->delete();
+            // Update genres
+            // 1. Hapus semua genre lama untuk film ini
+            DB::table('film_genre')->where('film_id', $film_id)->delete();
 
-    //         // 2. Tambahkan genre baru
-    //         foreach ($request->genres as $genre_id) {
-    //             DB::table('film_genre')->insert([
-    //                 'film_id' => $film_id,
-    //                 'genre_id' => $genre_id,
-    //             ]);
-    //         }
+            // 2. Tambahkan genre baru
+            foreach ($request->genres as $genre_id) {
+                DB::table('film_genre')->insert([
+                    'film_id' => $film_id,
+                    'genre_id' => $genre_id,
+                ]);
+            }
 
-    //         // Update platforms
-    //         // 1. Hapus semua platform lama untuk film ini
-    //         DB::table('film_platform')->where('film_id', $film_id)->delete();
+            // Update platforms
+            // 1. Hapus semua platform lama untuk film ini
+            DB::table('film_platform')->where('film_id', $film_id)->delete();
 
-    //         // 2. Tambahkan platform baru
-    //         foreach ($request->platforms as $platform_id) {
-    //             DB::table('film_platform')->insert([
-    //                 'film_id' => $film_id,
-    //                 'platform_id' => $platform_id,
-    //             ]);
-    //         }
+            // 2. Tambahkan platform baru
+            foreach ($request->platforms as $platform_id) {
+                DB::table('film_platform')->insert([
+                    'film_id' => $film_id,
+                    'platform_id' => $platform_id,
+                ]);
+            }
 
-    //         // Update actors (cast)
-    //         // 1. Hapus semua aktor lama untuk film ini
-    //         DB::table('film_cast')->where('film_id', $film_id)->delete();
+            // Update actors (cast)
+            // 1. Hapus semua aktor lama untuk film ini
+            DB::table('film_cast')->where('film_id', $film_id)->delete();
 
-    //         // 2. Tambahkan aktor baru
-    //         foreach ($request->actors as $actor_id) {
-    //             DB::table('film_cast')->insert([
-    //                 'film_id' => $film_id,
-    //                 'cast_id' => $actor_id,
-    //             ]);
-    //         }
-    //     });
+            // 2. Tambahkan aktor baru
+            foreach ($request->actors as $actor_id) {
+                DB::table('film_cast')->insert([
+                    'film_id' => $film_id,
+                    'cast_id' => $actor_id,
+                ]);
+            }
+        });
 
-    //     return response()->json([
-    //         'message' => 'Film dan semua relasinya berhasil diperbarui',
-    //         'film' => $film,
-    //     ]);
-    // }
-
-    
-
+        return response()->json([
+            'message' => 'Film dan semua relasinya berhasil diperbarui',
+            'film' => $film,
+        ]);
+    }    
 
     public function filmCms()
     {
